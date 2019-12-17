@@ -10,21 +10,18 @@ import { Provider } from 'react-redux';
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Reducer that holds our results
-const search = (state = [], action) => {
-    if(action.type === 'SET_SEARCH') {
-        return [...state, action.payload];
-    }
-    return state;
-}
-
 // Rent videogame
 const rentReducer = (state = [], action) => {
     // TODO: Products added to the cart
     switch(action.type) {
         case 'RENT_VIDEOGAME':
             return [...state, action.payload];
-        case 'REMOVE_VIDEOGAME':
+        case 'DELETE':
+            // return state.filter(({ id }) => id !== action.data);
+            return state.filter(item => (
+                item.i !== action.payload.i
+              ))
+        case 'CLEAR_CART':
             return [];
         default:
             return state
@@ -34,7 +31,6 @@ const rentReducer = (state = [], action) => {
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
-        search,
         rentReducer
     }),
 );

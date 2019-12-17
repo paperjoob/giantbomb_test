@@ -95,7 +95,6 @@ class Search extends Component {
                     </tbody>
                 </Table>
                 }
-            {/* <p>{JSON.stringify(this.props.reduxState)}</p> */}
         </div>
       );
     }

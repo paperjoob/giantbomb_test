@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 
 class SearchTable extends Component {
 
@@ -11,11 +12,11 @@ class SearchTable extends Component {
 
     render() {
         return (
-            <tr key={this.props.game.i}>
+            <tr key={this.props.i}>
                 <td>{this.props.game.name}</td>
-                <td><img src={this.props.game.image.icon_url}/></td>
+                <td><img src={this.props.game.image.icon_url} alt="video game image"/></td>
                 <td>{this.props.game.deck}</td>
-                <td><button onClick={this.addProductToCart}>Rent Game</button></td>
+                <td><Button variant="outline-dark" onClick={this.addProductToCart}>Rent Game</Button></td>
             </tr>
         )
     }
